@@ -9,8 +9,7 @@ public class Loan {
     private LocalDateTime loanedAt;
     private LocalDateTime returnedAt;
 
-    public Loan() {}
-
+    // Getters and setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getUserId() { return userId; }

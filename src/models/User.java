@@ -1,4 +1,4 @@
-package  models;
+package models;
 
 import java.time.LocalDateTime;
 
@@ -10,8 +10,7 @@ public class User {
     private String role;
     private LocalDateTime createdAt;
 
-    public User() {}
-
+    // Getters and setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getName() { return name; }

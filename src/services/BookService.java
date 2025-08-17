@@ -1,9 +1,8 @@
 package services;
 
-import models.Book;
-import utils.DatabaseManager;
 import java.sql.*;
 import java.time.LocalDateTime;
+import utils.DatabaseManager;
 
 public class BookService {
     public boolean addBook(String title, String author, String isbn, int copies) {

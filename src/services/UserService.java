@@ -1,9 +1,9 @@
 package services;
 
-import models.User;
-import utils.DatabaseManager;
 import java.sql.*;
 import java.time.LocalDateTime;
+import models.User;
+import utils.DatabaseManager;
 
 public class UserService {
     public boolean registerUser(String name, String email, String password) {
