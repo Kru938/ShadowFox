@@ -1,0 +1,165 @@
+import java.util.Scanner;
+
+public class Calculator {
+
+    // Method for basic arithmetic
+    public static double add(double a, double b) {
+        return a + b;
+    }
+    public static double subtract(double a, double b) {
+        return a - b;
+    }
+    public static double multiply(double a, double b) {
+        return a * b;
+    }
+    public static double divide(double a, double b) {
+        if (b == 0) {
+            System.out.println("Error: Division by zero is not allowed.");
+            return Double.NaN; // NaN = Not a Number
+        }
+        return a / b;
+    }
+
+    // Scientific calculations
+    public static double squareRoot(double a) {
+        if (a < 0) {
+            System.out.println("Error: Cannot calculate square root of a negative number.");
+            return Double.NaN;
+        }
+        return Math.sqrt(a);
+    }
+    public static double power(double base, double exponent) {
+        return Math.pow(base, exponent);
+    }
+
+    // Unit conversions
+    public static double celsiusToFahrenheit(double c) {
+        return (c * 9/5) + 32;
+    }
+    public static double fahrenheitToCelsius(double f) {
+        return (f - 32) * 5/9;
+    }
+    public static double usdToInr(double usd) {
+        double rate = 83.0; // Example conversion rate
+        return usd * rate;
+    }
+    public static double inrToUsd(double inr) {
+        double rate = 83.0; // Example conversion rate
+        return inr / rate;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        do {
+            // Menu
+            System.out.println("\n--- Enhanced Calculator ---");
+            System.out.println("1. Addition");
+            System.out.println("2. Subtraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4. Division");
+            System.out.println("5. Square Root");
+            System.out.println("6. Exponentiation");
+            System.out.println("7. Celsius to Fahrenheit");
+            System.out.println("8. Fahrenheit to Celsius");
+            System.out.println("9. USD to INR");
+            System.out.println("10. INR to USD");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            double num1, num2, result;
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter first number: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = sc.nextDouble();
+                    result = add(num1, num2);
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 2:
+                    System.out.print("Enter first number: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = sc.nextDouble();
+                    result = subtract(num1, num2);
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 3:
+                    System.out.print("Enter first number: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = sc.nextDouble();
+                    result = multiply(num1, num2);
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 4:
+                    System.out.print("Enter numerator: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Enter denominator: ");
+                    num2 = sc.nextDouble();
+                    result = divide(num1, num2);
+                    if (!Double.isNaN(result))
+                        System.out.println("Result: " + result);
+                    break;
+
+                case 5:
+                    System.out.print("Enter number: ");
+                    num1 = sc.nextDouble();
+                    result = squareRoot(num1);
+                    if (!Double.isNaN(result))
+                        System.out.println("Result: " + result);
+                    break;
+
+                case 6:
+                    System.out.print("Enter base: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Enter exponent: ");
+                    num2 = sc.nextDouble();
+                    result = power(num1, num2);
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 7:
+                    System.out.print("Enter temperature in Celsius: ");
+                    num1 = sc.nextDouble();
+                    System.out.println("Fahrenheit: " + celsiusToFahrenheit(num1));
+                    break;
+
+                case 8:
+                    System.out.print("Enter temperature in Fahrenheit: ");
+                    num1 = sc.nextDouble();
+                    System.out.println("Celsius: " + fahrenheitToCelsius(num1));
+                    break;
+
+                case 9:
+                    System.out.print("Enter USD amount: ");
+                    num1 = sc.nextDouble();
+                    System.out.println("INR: " + usdToInr(num1));
+                    break;
+
+                case 10:
+                    System.out.print("Enter INR amount: ");
+                    num1 = sc.nextDouble();
+                    System.out.println("USD: " + inrToUsd(num1));
+                    break;
+
+                case 0:
+                    System.out.println("Exiting... Thank you!");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+        } while (choice != 0);
+
+        sc.close();
+    }
+}
